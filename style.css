@@ -1,0 +1,204 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #1df700, #1093ff);
+    background-size: 200% 200%;
+    animation: gradientAnimation 03s ease infinite;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 24px;
+    color: #fff;
+    margin: 5px 0;
+}
+
+.header p {
+    font-size: 16px;
+    color: #ddd;
+    margin: 0 0 10px 0;
+}
+
+/* Ícones de redes sociais */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+h2 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Seção principal (PC e celular) */
+.main-section {
+    margin-bottom: 20px;
+}
+
+.main-link {
+    display: block;
+    background: linear-gradient(90deg, #ffffff, #ffffff);
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideIn 0.5s ease forwards;
+}
+
+.main-link:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Links adicionais (apenas no celular) */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.link-button {
+    display: block;
+    background: linear-gradient(90deg, #6b48ff, #00d4ff);
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.link-button:nth-child(1) { animation: slideIn 0.5s ease forwards 0.1s; }
+.link-button:nth-child(2) { animation: slideIn 0.5s ease forwards 0.2s; }
+
+.link-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.link-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Logo na parte inferior */
+.footer-logo {
+    margin: 40px 0 20px;
+}
+
+.bottom-logo {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Rodapé */
+.footer {
+    margin-bottom: 20px;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.footer span {
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Animação de entrada para os botões */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animação do gradiente de fundo */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estilização para o efeito de clique */
+.main-link.clicked, .link-button.clicked {
+    background: linear-gradient(90deg, #00df82, #08a9d1);
+    transform: scale(0.95);
+    transition: all 0.2s ease;
+}
+
+/* Responsividade */
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none; /* Esconde os links adicionais no PC */
+    }
+
+    .main-link, .link-button {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        max-width: 400px;
+    }
+
+    .main-link, .link-button {
+        max-width: 100%;
+    }
+}
